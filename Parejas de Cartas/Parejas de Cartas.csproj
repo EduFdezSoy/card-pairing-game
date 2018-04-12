@@ -103,6 +103,39 @@
   <ItemGroup>
     <Resource Include="Traseras de Cartas\roja1.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Traseras de Cartas\azul1.jpg" />
+    <Resource Include="Traseras de Cartas\azul2.jpg" />
+    <Resource Include="Traseras de Cartas\azul3.jpg" />
+    <Resource Include="Traseras de Cartas\negra1.jpg" />
+    <Resource Include="Traseras de Cartas\negra2.jpg" />
+    <Resource Include="Traseras de Cartas\negra3.jpg" />
+    <Resource Include="Traseras de Cartas\negra4.jpg" />
+    <Resource Include="Traseras de Cartas\negra5.jpg" />
+    <Resource Include="Traseras de Cartas\roja2.jpg" />
+    <Resource Include="Traseras de Cartas\roja3.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Juego de cartas\Star\star1.jpg" />
+    <Resource Include="Juego de cartas\Star\star10.jpg" />
+    <Resource Include="Juego de cartas\Star\star11.jpg" />
+    <Resource Include="Juego de cartas\Star\star12.jpg" />
+    <Resource Include="Juego de cartas\Star\star13.jpg" />
+    <Resource Include="Juego de cartas\Star\star14.jpg" />
+    <Resource Include="Juego de cartas\Star\star15.jpg" />
+    <Resource Include="Juego de cartas\Star\star16.jpg" />
+    <Resource Include="Juego de cartas\Star\star17.jpg" />
+    <Resource Include="Juego de cartas\Star\star18.jpg" />
+    <Resource Include="Juego de cartas\Star\star2.jpg" />
+    <Resource Include="Juego de cartas\Star\star3.jpg" />
+    <Resource Include="Juego de cartas\Star\star4.jpg" />
+    <Resource Include="Juego de cartas\Star\star5.jpg" />
+    <Resource Include="Juego de cartas\Star\star6.jpg" />
+    <Resource Include="Juego de cartas\Star\star7.jpg" />
+    <Resource Include="Juego de cartas\Star\star8.jpg" />
+    <Resource Include="Juego de cartas\Star\star9.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
