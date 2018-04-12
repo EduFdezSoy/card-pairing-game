@@ -24,7 +24,7 @@ namespace Parejas_de_Cartas
         public Juego(sbyte cuantas)
         {
             InitializeComponent();
-            CojeCartas(cuantas);
+            // CojeCartas(cuantas);
             string[,] a = new string[5, 4]{ 
                 { @"Traseras de Cartas\roja1.jpg", @"Traseras de Cartas\roja1.jpg", @"Traseras de Cartas\roja1.jpg", @"Traseras de Cartas\roja1.jpg" },
                 { @"Traseras de Cartas\roja1.jpg", @"Traseras de Cartas\roja1.jpg", @"Traseras de Cartas\roja1.jpg", @"Traseras de Cartas\roja1.jpg" },
