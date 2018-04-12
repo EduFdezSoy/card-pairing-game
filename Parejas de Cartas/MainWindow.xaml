@@ -4,5 +4,6 @@
         Title="Pair the Cards" Height="auto" Width="auto" ResizeMode="CanResizeWithGrip">
     <StackPanel>
         <!-- Ventana de inicio, seleccion de juego de cartas -->
+        <Button Content="probar juego" Click="Button_Click" Width="100" Margin="100"/>
     </StackPanel>
 </Window>

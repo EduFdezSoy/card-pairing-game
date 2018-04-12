@@ -17,11 +17,16 @@ namespace Parejas_de_Cartas
     /// <summary>
     /// Lógica de interacción para juego.xaml
     /// </summary>
-    public partial class juego : Window
+    public partial class Juego : Window
     {
-        public juego()
+        public Juego()
         {
             InitializeComponent();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            App.Current.MainWindow.Show();
         }
     }
 }

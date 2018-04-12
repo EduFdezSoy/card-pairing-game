@@ -24,5 +24,12 @@ namespace Parejas_de_Cartas
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Juego j = new Juego();
+            j.Show();
+            this.Hide();
+        }
     }
 }

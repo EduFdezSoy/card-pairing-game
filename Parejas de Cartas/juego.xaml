@@ -1,13 +1,38 @@
-﻿<Window x:Class="Parejas_de_Cartas.juego"
+﻿<Window x:Class="Parejas_de_Cartas.Juego"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Pair the Cards" Height="auto" Width="auto" ResizeMode="CanResizeWithGrip">
+        Title="Pair the Cards" Height="auto" Width="auto" ResizeMode="CanResizeWithGrip" Closed="Window_Closed">
     <!-- Ventana de juego -->
-    <StackPanel>
-        <DockPanel>
-            <Image/>
-            <image/>
-            <image/>
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <DockPanel Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+        </DockPanel>
+        <DockPanel Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+        </DockPanel>
+        <DockPanel Height="100" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
+            <Image Source="Traseras de Cartas\roja1.jpg"/>
         </DockPanel>
     </StackPanel>
 </Window>
