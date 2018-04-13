@@ -24,12 +24,13 @@ namespace Parejas_de_Cartas
     {
         string[,] tablero;
         string trasera;
-        Image seleccionAnterior;
+        int cuantas;
 
         public Juego(sbyte cuantas, Tematica tema)
         {
             InitializeComponent();
 
+            this.cuantas = cuantas;
             string[] barajaCompleta = SeleccionarTematica(tema);
             string[] barajaSeleccionada = CojeCartas(cuantas, barajaCompleta);
             string[] barajaAUsar = DuplicaCartas(barajaSeleccionada);
@@ -46,42 +47,55 @@ namespace Parejas_de_Cartas
             App.Current.MainWindow.Show();
         }
 
+        // variables necesarias para el click
+        Image seleccionAnterior;
+        int aciertos = 0;
+
         private void Carta_Click(object sender, EventArgs e)
         {
-            int fila = int.Parse(((Image)sender).Name.Split('_')[1]);
-            int columna = int.Parse(((Image)sender).Name.Split('_')[2]);
+            Image seleccionada = (Image)sender;
 
-            // para la primera vez hacemos esto
+            int fila = int.Parse(seleccionada.Name.Split('_')[1]);
+            int columna = int.Parse(seleccionada.Name.Split('_')[2]);
+
+            // si no hay anterior
             if (seleccionAnterior == null)
             {
-                ((Image)sender).Source = new BitmapImage(new Uri(tablero[fila, columna], UriKind.RelativeOrAbsolute));
-                seleccionAnterior = (Image)sender;
+                Voltear(seleccionada, true);
+                seleccionAnterior = seleccionada;
             }
+            // si son iguales
+            else if (ComprobarCartas(seleccionada, seleccionAnterior))
+            {
+                Voltear(seleccionada, true);
+                seleccionAnterior = null;
 
-            // si seleccionamos la misma la ocultamos
-            else if (seleccionAnterior == (Image)sender)
-                ((Image)sender).Source = new BitmapImage(new Uri(trasera, UriKind.RelativeOrAbsolute));
-
-            // si es la misma las dejamos descubiertas
-            else if (seleccionAnterior.Source == ((Image)sender).Source)
-                ((Image)sender).Source = new BitmapImage(new Uri(tablero[fila, columna], UriKind.RelativeOrAbsolute));
-
-            // si no son la misma las mostramos dos segundos y las volteamos de nuevo
+                aciertos++;
+            }
             else
             {
-                ((Image)sender).Source = new BitmapImage(new Uri(tablero[fila, columna], UriKind.RelativeOrAbsolute));
-                seleccionAnterior = (Image)sender;
-                DelayAction(2000, new Action(() =>
+                Image vol1_temp = seleccionada;
+                Image vol2_temp = seleccionAnterior;
+
+                seleccionAnterior = null;
+
+                Voltear(seleccionada, true);
+                DelayAction(1000, new Action(() =>
                 {
-                    ((Image)sender).Source = new BitmapImage(new Uri(trasera, UriKind.RelativeOrAbsolute));
-                    seleccionAnterior.Source = new BitmapImage(new Uri(trasera, UriKind.RelativeOrAbsolute));
+                    Voltear(vol1_temp, false);
+                    Voltear(vol2_temp, false);
                 }));
-            }        
+            }
+
+            if (ComprobacionDeAciertos())
+            {
+                MessageBox.Show("Ganaste!");
+            }
         }
 
         // ----- METODOS -----
 
-        public enum Tematica { Star, StevenUniverse, MyHeroAcademia};
+        public enum Tematica { Star, StevenUniverse, MyHeroAcademia };
 
         private string[] SeleccionarTematica(Tematica tema)
         {
@@ -153,7 +167,7 @@ namespace Parejas_de_Cartas
 
             Random rnd = new Random();
 
-            for ( int i = 0; i < vueltas; i++ )
+            for (int i = 0; i < vueltas; i++)
             {
                 a = rnd.Next(0, cartas.Length);
                 b = rnd.Next(0, cartas.Length);
@@ -162,7 +176,7 @@ namespace Parejas_de_Cartas
                 cartas[a] = cartas[b];
                 cartas[b] = c;
             }
-            
+
             return cartas;
         }
 
@@ -172,13 +186,13 @@ namespace Parejas_de_Cartas
             int lineas;
             int contador = 0;
 
-            while ( cartas.Length % columnas != 0 ) { columnas--; }
+            while (cartas.Length % columnas != 0) { columnas--; }
 
             lineas = cartas.Length / columnas;
 
             string[,] tablero = new string[lineas, columnas];
 
-            for ( int i = 0; i < lineas; i++ )
+            for (int i = 0; i < lineas; i++)
                 for (int j = 0; j < columnas; j++)
                     tablero[i, j] = cartas[contador++];
 
@@ -194,20 +208,20 @@ namespace Parejas_de_Cartas
                                     @"Traseras de Cartas\negra1.jpg", @"Traseras de Cartas\negra2.jpg", @"Traseras de Cartas\negra3.jpg", 
                                     @"Traseras de Cartas\negra4.jpg", @"Traseras de Cartas\negra5.jpg"
                                 };
-            
-            return traseras[rnd.Next(0,traseras.Length)];
+
+            return traseras[rnd.Next(0, traseras.Length)];
         }
 
         private void DibujarCartas(String[,] cartas)
         {
 
-            for ( int i = 0; i < cartas.GetLength(0); i++ )
+            for (int i = 0; i < cartas.GetLength(0); i++)
             {
                 // crear dockpanel
                 DockPanel a = new DockPanel();
                 a.Height = 175;
 
-                for ( int j = 0; j < cartas.GetLength(1); j++ )
+                for (int j = 0; j < cartas.GetLength(1); j++)
                 {
                     // parseamos la ruta
                     //Uri imageUri = new Uri(cartas[i,j], UriKind.RelativeOrAbsolute);
@@ -229,7 +243,6 @@ namespace Parejas_de_Cartas
             }
         }
 
-
         /// <summary>
         /// DelayAction(5000, new Action(() =>
         ///     {
@@ -249,6 +262,64 @@ namespace Parejas_de_Cartas
 
             timer.Interval = TimeSpan.FromMilliseconds(millisecond);
             timer.Start();
+        }
+
+        private void Voltear(Image imagen, bool vista)
+        {
+            if (vista)
+            {
+                int fila = int.Parse(imagen.Name.Split('_')[1]);
+                int columna = int.Parse(imagen.Name.Split('_')[2]);
+                imagen.Source = new BitmapImage(new Uri(tablero[fila, columna], UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                imagen.Source = new BitmapImage(new Uri(trasera, UriKind.RelativeOrAbsolute));
+            }
+        }
+
+        private bool ComprobarCartas(Image actual, Image anterior)
+        {
+            // variables
+            string rutaActual;
+            string rutaAnterior;
+            int filaActual;
+            int columnaActual;
+            int filaAnterior;
+            int columnaAnterior;
+
+            // asignamos las variables
+            filaActual = int.Parse(actual.Name.Split('_')[1]);
+            columnaActual = int.Parse(actual.Name.Split('_')[2]);
+
+            rutaActual = tablero[filaActual, columnaActual];
+
+            filaAnterior = int.Parse(anterior.Name.Split('_')[1]);
+            columnaAnterior = int.Parse(anterior.Name.Split('_')[2]);
+
+            rutaAnterior = tablero[filaAnterior, columnaAnterior];
+
+            // comprobaciones logicas
+            if (filaActual == filaAnterior && columnaActual == columnaAnterior)
+                return false;
+            else if (rutaActual == rutaAnterior)
+                return true;
+            else
+                return false;
+        }
+
+        private bool ComprobacionDeAciertos()
+        {
+            if (aciertos == cuantas)
+            {
+                this.Title = string.Format("Aciertos: {0} de {1} parejas.", aciertos, cuantas);
+                return true;
+            }
+            else
+            {
+                this.Title = string.Format("Aciertos: {0} de {1} parejas.", aciertos, cuantas);
+                return false;
+            }
         }
     }
 }
