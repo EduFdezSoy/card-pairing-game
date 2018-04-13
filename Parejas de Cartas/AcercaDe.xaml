@@ -1,0 +1,25 @@
+﻿<Window x:Class="Parejas_de_Cartas.AcercaDe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Acerca De" Height="250" Width="300" ResizeMode="NoResize">
+    <StackPanel Margin="10">
+        <Label Margin="10" FontSize="20" HorizontalAlignment="Center">Wpf_17 - Menus</Label>
+        <DockPanel HorizontalAlignment="Center">
+            <Label>Autor:</Label>
+            <Label>Eduardo Fernandez</Label>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Center">
+            <Label>Twitter: @EduFdezSoy</Label>
+            <Label>|</Label>
+            <Label>Github: EduFdezSoy</Label>
+        </DockPanel>
+        <DockPanel Margin="10"  HorizontalAlignment="Center">
+            <Label>(c) 2018 - MIT License</Label>
+        </DockPanel>
+        <DockPanel Margin="10" HorizontalAlignment="Stretch">
+            <Button Content="Donar un cafe" Width="100" IsEnabled="False" />
+            <Button Content="Cerrar" Width="75" HorizontalAlignment="Right" Click="Button_Click"/>
+        </DockPanel>
+    </StackPanel>
+</Window>
+
