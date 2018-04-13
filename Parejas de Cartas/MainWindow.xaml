@@ -2,11 +2,34 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Pair the Cards - Menu" Height="750" Width="1500" ResizeMode="CanResizeWithGrip">
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="50">
         <!-- Ventana de inicio, seleccion de juego de cartas -->
-        <DockPanel Height="300">
-            <Image Source="Juego de cartas\Star\star1.jpg" />
+        <Label Content="Selecciona una baraja" Margin="20,0,0,50" FontSize="30"/>
+        <DockPanel HorizontalAlignment="Center">
+            <StackPanel Width="250">
+                <Image Source="Portadas/Star.jpg" />
+                <Button Content="Star vs the Forces of Evil" Click="Button_Click_Star" Width="150" Height="25" Margin="10"/>
+            </StackPanel>
+            <StackPanel Width="250">
+                <Image Source="Portadas/BokuNoHero.jpg" />
+                <Button Content="My Hero Academia" Click="Button_Click_MHA" Width="150" Height="25" Margin="10"/>
+            </StackPanel>
+            <StackPanel Width="250">
+                <Image Source="Portadas/StevenUniverse.jpg" />
+                <Button Content="Steven Universe" Click="Button_Click_SU" Width="150" Height="25" Margin="10" IsEnabled="False"/>
+            </StackPanel>
         </DockPanel>
-        <Button Content="probar juego" Click="Button_Click" Width="100" Margin="100"/>
+        <DockPanel Margin="250,50,0,30" HorizontalAlignment="Left">
+            <Label Content="Dificultad" HorizontalAlignment="Left"/>
+            <ComboBox Width="200" SelectionChanged="ComboBox_SelectionChanged" HorizontalAlignment="Left" IsEnabled="False">
+                <ComboBoxItem Content="Facil"/>
+                <ComboBoxItem Content="Medio" IsSelected="True"/>
+                <ComboBoxItem Content="Dificil"/>
+            </ComboBox>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Stretch" Margin="20,0">
+            <Button Content="Salir" Width="75" HorizontalAlignment="Left" Click="Button_Close"/>
+            <Button Content="Creditos" Width="75" HorizontalAlignment="Right" Click="Button_Credits"/>
+        </DockPanel>
     </StackPanel>
 </Window>

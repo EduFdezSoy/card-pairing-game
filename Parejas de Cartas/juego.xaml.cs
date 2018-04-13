@@ -122,12 +122,15 @@ namespace Parejas_de_Cartas
                                          @"Juego de cartas\Star\star13.jpg", @"Juego de cartas\Star\star14.jpg", @"Juego de cartas\Star\star15.jpg",
                                          @"Juego de cartas\Star\star16.jpg", @"Juego de cartas\Star\star17.jpg", @"Juego de cartas\Star\star18.jpg"};
                 case Tematica.MyHeroAcademia:
-                    return new string[] {@"Juego de cartas\Star\star1.jpg", @"Juego de cartas\Star\star2.jpg", @"Juego de cartas\Star\star3.jpg", 
-                                         @"Juego de cartas\Star\star4.jpg", @"Juego de cartas\Star\star5.jpg", @"Juego de cartas\Star\star6.jpg",
-                                         @"Juego de cartas\Star\star7.jpg", @"Juego de cartas\Star\star8.jpg", @"Juego de cartas\Star\star9.jpg", 
-                                         @"Juego de cartas\Star\star10.jpg", @"Juego de cartas\Star\star11.jpg", @"Juego de cartas\Star\star12.jpg",
-                                         @"Juego de cartas\Star\star13.jpg", @"Juego de cartas\Star\star14.jpg", @"Juego de cartas\Star\star15.jpg",
-                                         @"Juego de cartas\Star\star16.jpg", @"Juego de cartas\Star\star17.jpg", @"Juego de cartas\Star\star18.jpg"};
+                    return new string[] {@"Juego de cartas\MyHeroAcademia\mha1.jpg", @"Juego de cartas\MyHeroAcademia\mha2.jpg", @"Juego de cartas\MyHeroAcademia\mha3.jpg", 
+                                         @"Juego de cartas\MyHeroAcademia\mha4.jpg", @"Juego de cartas\MyHeroAcademia\mha5.jpg", @"Juego de cartas\MyHeroAcademia\mha6.jpg",
+                                         @"Juego de cartas\MyHeroAcademia\mha7.jpg", @"Juego de cartas\MyHeroAcademia\mha8.jpg", @"Juego de cartas\MyHeroAcademia\mha9.jpg", 
+                                         @"Juego de cartas\MyHeroAcademia\mha10.jpg", @"Juego de cartas\MyHeroAcademia\mha11.jpg", @"Juego de cartas\MyHeroAcademia\mha12.jpg",
+                                         @"Juego de cartas\MyHeroAcademia\mha13.jpg", @"Juego de cartas\MyHeroAcademia\mha14.jpg", @"Juego de cartas\MyHeroAcademia\mha15.jpg",
+                                         @"Juego de cartas\MyHeroAcademia\mha16.jpg", @"Juego de cartas\MyHeroAcademia\mha17.jpg", @"Juego de cartas\MyHeroAcademia\mha18.jpg",
+                                         @"Juego de cartas\MyHeroAcademia\mha19.jpg", @"Juego de cartas\MyHeroAcademia\mha20.jpg", @"Juego de cartas\MyHeroAcademia\mha21.jpg",
+                                         @"Juego de cartas\MyHeroAcademia\mha22.jpg", @"Juego de cartas\MyHeroAcademia\mha23.jpg", @"Juego de cartas\MyHeroAcademia\mha24.jpg",
+                                         @"Juego de cartas\MyHeroAcademia\mha25.jpg", @"Juego de cartas\MyHeroAcademia\mha26.jpg"};
             }
 
             throw new Exception("La tematica seleccionada no existe.");
