@@ -68,10 +68,15 @@ namespace Parejas_de_Cartas
             else if (ComprobarCartas(seleccionada, seleccionAnterior))
             {
                 Voltear(seleccionada, true);
+                
+                seleccionada.MouseLeftButtonUp -= new MouseButtonEventHandler(Carta_Click);
+                seleccionAnterior.MouseLeftButtonUp -= new MouseButtonEventHandler(Carta_Click);
+
                 seleccionAnterior = null;
 
                 aciertos++;
             }
+            // si no son iguales
             else
             {
                 Image vol1_temp = seleccionada;
@@ -80,7 +85,7 @@ namespace Parejas_de_Cartas
                 seleccionAnterior = null;
 
                 Voltear(seleccionada, true);
-                DelayAction(1000, new Action(() =>
+                DelayAction(500, new Action(() =>
                 {
                     Voltear(vol1_temp, false);
                     Voltear(vol2_temp, false);
@@ -92,6 +97,7 @@ namespace Parejas_de_Cartas
                 MessageBox.Show("Ganaste!");
             }
         }
+
 
         // ----- METODOS -----
 
@@ -244,14 +250,14 @@ namespace Parejas_de_Cartas
         }
 
         /// <summary>
-        /// DelayAction(5000, new Action(() =>
+        /// DelayAction(1000, new Action(() =>
         ///     {
         ///         ((Image)sender).Source = new BitmapImage(new Uri(trasera, UriKind.RelativeOrAbsolute));
         ///     }));
         /// </summary>
         /// <param name="millisecond"></param>
         /// <param name="action"></param>
-        private static void DelayAction(int millisecond, Action action)
+        private void DelayAction(int millisecond, Action action)
         {
             var timer = new DispatcherTimer();
             timer.Tick += delegate
@@ -312,12 +318,12 @@ namespace Parejas_de_Cartas
         {
             if (aciertos == cuantas)
             {
-                this.Title = string.Format("Aciertos: {0} de {1} parejas.", aciertos, cuantas);
+                this.Title = string.Format("Pair the Cards - Aciertos: {0} de {1} parejas.", aciertos, cuantas);
                 return true;
             }
             else
             {
-                this.Title = string.Format("Aciertos: {0} de {1} parejas.", aciertos, cuantas);
+                this.Title = string.Format("Pair the Cards - Aciertos: {0} de {1} parejas.", aciertos, cuantas);
                 return false;
             }
         }

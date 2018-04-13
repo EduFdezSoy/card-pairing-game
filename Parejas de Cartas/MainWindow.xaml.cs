@@ -27,7 +27,7 @@ namespace Parejas_de_Cartas
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Juego j = new Juego(10, Juego.Tematica.Star);
+            Juego j = new Juego(18, Juego.Tematica.Star);
             j.Show();
             this.Hide();
         }

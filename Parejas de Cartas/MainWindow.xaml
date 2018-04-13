@@ -1,9 +1,12 @@
 ﻿<Window x:Class="Parejas_de_Cartas.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Pair the Cards" Height="auto" Width="auto" ResizeMode="CanResizeWithGrip">
-    <StackPanel>
+        Title="Pair the Cards - Menu" Height="750" Width="1500" ResizeMode="CanResizeWithGrip">
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="50">
         <!-- Ventana de inicio, seleccion de juego de cartas -->
+        <DockPanel Height="300">
+            <Image Source="Juego de cartas\Star\star1.jpg" />
+        </DockPanel>
         <Button Content="probar juego" Click="Button_Click" Width="100" Margin="100"/>
     </StackPanel>
 </Window>
